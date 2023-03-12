@@ -48,7 +48,7 @@ class MainClass
         Console.WriteLine("Kode pos untuk kelurahan "+kelurahan+" adalah "+ kodepos);
 
         DoorMachine dm = new DoorMachine();
-        Console.WriteLine("Perintah : KunciPintu, BukaPintu");
+        Console.WriteLine("Ketentuan Perintah : KunciPintu, BukaPintu");
         dm.ChangeState();
     }
 }

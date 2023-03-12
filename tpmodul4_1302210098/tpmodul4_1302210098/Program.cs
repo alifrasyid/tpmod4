@@ -51,6 +51,33 @@ public class KodePos
         return kodepos;
     }
 }
+public class DoorMachine
+{
+    enum DoorState {Terkunci,Terbuka}
+    DoorState Pintu = DoorState.Terkunci;
+    string kondisi = "KunciPintu";
+
+    public void ChangeState()
+    {
+        Console.WriteLine("Pintu Terkunci");
+        while (kondisi == "KunciPintu" || kondisi == "BukaPintu")
+        {
+            Console.Write("Masukkan Perintah : ");
+            kondisi = Console.ReadLine();
+            if (kondisi == "BukaPintu")
+            {
+                Pintu = DoorState.Terbuka;
+                Console.WriteLine("Pintu Tidak Terkunci");
+            }
+            else if (kondisi == "KunciPintu")
+            {
+                Pintu = DoorState.Terkunci;
+                Console.WriteLine("Pintu Terkunci");
+            }
+
+        }
+    }
+}
 class MainClass
 {
     static void Main()
@@ -59,5 +86,9 @@ class MainClass
         KodePos.Kelurahan kelurahan = KodePos.Kelurahan.Kujangsari;
         string kodepos = kodePosK.getKodePos(kelurahan);
         Console.WriteLine("Kode pos untuk kelurahan "+kelurahan+" adalah "+ kodepos);
+
+        DoorMachine dm = new DoorMachine();
+        Console.WriteLine("Perintah : KunciPintu, BukaPintu");
+        dm.ChangeState();
     }
 }
